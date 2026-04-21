@@ -126,13 +126,22 @@ MIT — see [`LICENSE`](./LICENSE).
 
 ## AI Use Disclosure
 
-This README was generated with Claude Opus 4.7 (Anthropic) assistance.
-The underlying implementation (CLI, Streamlit UI, Crossref + OpenAlex
-verification, test suite, CI workflow) was also built with Claude
-assistance, under my direction as the product owner. All design
-decisions — choosing Crossref + OpenAlex as dual independent sources,
-keeping the runtime free of any LLM dependencies to avoid using AI to
-audit AI, scoping the tool to flag-only rather than auto-delete,
-selecting the NIST AI Risk Management Framework as the primary ethical
-grounding — are my own. This disclosure is provided in accordance with
-the DSCI 305 AI Use Policy at Rice University (Spring 2026).
+### 1. Tools used
+
+- **Claude** (Anthropic): primarily Claude Opus 4.6 and Claude Opus 4.7, with some use of Claude Sonnet 4.6 for faster iteration on small edits
+
+### 2. How AI was used
+
+Claude wrote all code for this project in accordance with my specific instructions/prompts. I manually verified each file/component's functionality and iterated as needed. Claude also wrote this `README.md` (though I myself am writing this AI disclosure section). Additionally, while I wrote the written component myself, I initially did it in a word doc. Claude reformatted it for markdown (turning comma separated lists into bullet points, bolding where necessary, etc.), but did NOT change any of the wording/content that I wrote. I figured having it as an md file in the repo was appropriate rather than turning it in as a separate doc.
+
+### 3. Key prompt examples
+
+"I want to build a tool that takes a research pdf / academic paper and checks its references against crossref/openalex to detect hallucinated citations. Discuss with me the architecture."
+
+"Write a function that for a given citation queries Crossref first, then OpenAlex, returning a confidence score based on DOI exact match, title fuzzy similarity, first-author match, and year proximity."
+
+"Ok, let's build a test suite where we have different cases to reveal strengths and limitations with the tool. I want a bib with several all real citations, a bib with all hallucinated citations, and then a bib with some real and some hallucinated."
+
+"Now that the cli is done and verified, let's make it webapp compatible by wrapping the cli in a streamlit ui."
+
+"Create a brief readme that discusses the purpose of the project, setup instructions, output interpretation, and strengths/limitations."
