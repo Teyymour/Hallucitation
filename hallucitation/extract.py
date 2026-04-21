@@ -103,6 +103,12 @@ _NUMBERED_START = re.compile(r"^\s*(?:\[\d+\]|\(\d+\)|\d+\.)\s+")
 _AUTHOR_YEAR_START = re.compile(
     r"^[A-Z][A-Za-z'`\-]+,\s*[A-Z]\.?"  # "Smith, J."
 )
+# Institutional / single-name authors followed by year in parens, e.g.
+# "RiskMetrics (1996)" or "Cboe (2020a)". Catches grey-literature references
+# from corporate authors whose entry doesn't look like "Surname, I.".
+_INSTITUTIONAL_YEAR_START = re.compile(
+    r"^[A-Z][A-Za-z]+\s*\(\d{4}[a-z]?\)"
+)
 
 
 def split_references(ref_block: str) -> list[str]:
@@ -158,7 +164,9 @@ def _split_by_blank_or_author(lines: list[str]) -> list[str]:
         if not ln.strip():
             flush()
             continue
-        if current and _AUTHOR_YEAR_START.match(ln) and _looks_complete(current):
+        if current and _looks_complete(current) and (
+            _AUTHOR_YEAR_START.match(ln) or _INSTITUTIONAL_YEAR_START.match(ln)
+        ):
             flush()
         current.append(ln.strip())
     flush()
@@ -166,10 +174,28 @@ def _split_by_blank_or_author(lines: list[str]) -> list[str]:
 
 
 def _looks_complete(current: list[str]) -> bool:
-    """Heuristic: the running entry contains a year, so a new author start
-    probably means a new reference."""
+    """Heuristic: the running entry contains a year AND does not appear to
+    be mid-list of editors/authors, so a new author start probably means a
+    new reference.
+
+    The trailing-connective check matters for book-chapter references whose
+    editor list wraps across lines, e.g.:
+
+        Patton, A. and Sheppard, K. (2008), "Evaluating..." in
+        Handbook..., eds. Andersen, T.G., Davis, R., Kreiss, J.-P., and
+        Mikosch, T., Springer, pp. 801-828.
+
+    Without this check, "Mikosch, T., ..." would be misread as the start of
+    a new reference (it matches the Surname, Initial pattern), fragmenting
+    the Patton entry and mashing Mikosch's tail with the NEXT reference.
+    """
     joined = " ".join(current)
-    return bool(re.search(r"(19|20)\d{2}", joined))
+    if not re.search(r"(19|20)\d{2}", joined):
+        return False
+    stripped = joined.rstrip().rstrip(",").rstrip()
+    if stripped.endswith(("and", "&", "eds.", "ed.", "eds", "ed")):
+        return False
+    return True
 
 
 def extract_raw_citations(pdf_path: str | Path) -> list[str]:
