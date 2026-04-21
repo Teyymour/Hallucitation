@@ -30,14 +30,21 @@ _POST_REF_HEADINGS = [
 
 
 def extract_text(pdf_path: str | Path) -> str:
-    """Extract all text from a PDF as a single string."""
+    """Extract all text from a PDF as a single string.
+
+    Uses ``x_tolerance=1`` instead of the pdfplumber default (3). Tighter-kerned
+    PDFs (common in finance/stats journals) drop inter-word spaces at the
+    default tolerance — "Stock Prices" → "StockPrices" — which breaks
+    downstream title-matching against Crossref. A smaller tolerance preserves
+    spaces without over-segmenting words.
+    """
     pdf_path = Path(pdf_path)
     if not pdf_path.exists():
         raise FileNotFoundError(pdf_path)
     chunks: list[str] = []
     with pdfplumber.open(pdf_path) as pdf:
         for page in pdf.pages:
-            text = page.extract_text() or ""
+            text = page.extract_text(x_tolerance=1) or ""
             chunks.append(text)
     return "\n".join(chunks)
 
