@@ -1,5 +1,3 @@
-# Ethics Brief — `Hallucitation`
-
 *Teymour Davoudi*
 
 *DSCI 305*
