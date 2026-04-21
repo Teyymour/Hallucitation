@@ -7,7 +7,7 @@ from typing import Any
 
 from rapidfuzz import fuzz
 
-from citation_cleaner.parse import Citation
+from hallucitation.parse import Citation
 
 
 def _normalise(s: str | None) -> str:

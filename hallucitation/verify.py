@@ -8,9 +8,9 @@ from typing import Any, Literal
 
 import httpx
 
-from citation_cleaner import crossref, openalex
-from citation_cleaner.parse import Citation
-from citation_cleaner.score import aggregate
+from hallucitation import crossref, openalex
+from hallucitation.parse import Citation
+from hallucitation.score import aggregate
 
 
 Verdict = Literal["verified", "partial_match", "mangled", "hallucinated"]

@@ -6,10 +6,10 @@ from typing import Any
 
 import httpx
 
-from citation_cleaner.parse import Citation
+from hallucitation.parse import Citation
 
 CROSSREF_BASE = "https://api.crossref.org"
-USER_AGENT = "citation-cleaner/0.1 (https://github.com/teymour-aldridge/citation-cleaner; mailto:noreply@example.com)"
+USER_AGENT = "hallucitation/0.1 (https://github.com/Teyymour/Hallucitation; mailto:noreply@example.com)"
 
 
 def _extract_work(doc: dict[str, Any]) -> dict[str, Any]:

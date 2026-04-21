@@ -42,10 +42,10 @@ Requires **Python 3.11+**.
 
 ```bash
 # Check a PDF, print a Markdown report to stdout
-python -m citation_cleaner.cli check paper.pdf
+python -m hallucitation check paper.pdf
 
 # Write a Markdown report + JSON + annotated PDF
-python -m citation_cleaner.cli check paper.pdf \
+python -m hallucitation check paper.pdf \
     --output report.md \
     --json report.json \
     --annotate annotated.pdf
@@ -64,7 +64,7 @@ Rate-limit the external APIs with `--rate N` (default 5 requests/sec).
 ## Quick start — web UI (Streamlit)
 
 ```bash
-streamlit run citation_cleaner/webapp.py
+streamlit run hallucitation/webapp.py
 ```
 
 A browser tab opens at `http://localhost:8501`. Drop a PDF onto the

@@ -1,4 +1,4 @@
-from citation_cleaner.extract import (
+from hallucitation.extract import (
     extract_raw_citations,
     extract_text,
     find_references_section,

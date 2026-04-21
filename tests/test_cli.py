@@ -4,9 +4,9 @@ from pathlib import Path
 
 import pytest
 
-from citation_cleaner import cli, verify
-from citation_cleaner.parse import Citation
-from citation_cleaner.verify import VerificationResult
+from hallucitation import cli, verify
+from hallucitation.parse import Citation
+from hallucitation.verify import VerificationResult
 
 
 def _fake_verify_all_verified(citations):
@@ -59,7 +59,7 @@ def test_cli_writes_output_file(monkeypatch, tmp_path, real_pdf):
     assert code == 0
     assert out.exists()
     assert js.exists()
-    assert "Citation Cleaner Report" in out.read_text()
+    assert "Hallucitation Report" in out.read_text()
 
 
 def test_cli_writes_annotated_pdf(monkeypatch, tmp_path, hallucinated_pdf):

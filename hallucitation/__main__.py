@@ -1,4 +1,4 @@
-from citation_cleaner.cli import main
+from hallucitation.cli import main
 import sys
 
 if __name__ == "__main__":

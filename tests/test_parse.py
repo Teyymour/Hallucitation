@@ -1,4 +1,4 @@
-from citation_cleaner.parse import Citation, parse_citation, parse_many
+from hallucitation.parse import Citation, parse_citation, parse_many
 
 
 def test_parse_style1_author_year():

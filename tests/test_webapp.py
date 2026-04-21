@@ -5,9 +5,9 @@ check that the top-level helper function runs end-to-end with a monkey-patched
 verifier. This ensures no import-time errors slip into the web entry point.
 """
 
-from citation_cleaner import webapp
-from citation_cleaner.parse import Citation
-from citation_cleaner.verify import VerificationResult
+from hallucitation import webapp
+from hallucitation.parse import Citation
+from hallucitation.verify import VerificationResult
 
 
 def test_webapp_module_imports():
@@ -29,5 +29,5 @@ def test_webapp_run_helper(monkeypatch, real_pdf):
 
     results, md, js = webapp._run(real_pdf)
     assert len(results) >= 1
-    assert "Citation Cleaner Report" in md
+    assert "Hallucitation Report" in md
     assert '"verdict": "verified"' in js

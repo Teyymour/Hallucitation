@@ -4,8 +4,8 @@ import httpx
 import pytest
 import respx
 
-from citation_cleaner.parse import Citation
-from citation_cleaner.verify import verify_citations, RateLimiter
+from hallucitation.parse import Citation
+from hallucitation.verify import verify_citations, RateLimiter
 
 
 CROSSREF_WORK_JSON = {

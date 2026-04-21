@@ -34,7 +34,7 @@ REAL_BODY = """
 
 <b>Abstract.</b> This short note summarises several widely cited results in
 modern machine learning. It exists only as a test fixture for the
-citation-cleaner tool.<br/><br/>
+hallucitation tool.<br/><br/>
 
 <b>1. Introduction.</b> The Transformer architecture (Vaswani et al., 2017)
 revolutionised sequence modelling. Earlier work established the foundations of
@@ -123,7 +123,7 @@ def build_hallucinated(path: Path | None = None) -> Path:
     fake_body = (
         "<b>An Entirely Fabricated Research Note</b><br/><br/>"
         "<b>Abstract.</b> This document exists solely to exercise the "
-        "citation-cleaner tool against a bibliography full of invented "
+        "hallucitation tool against a bibliography full of invented "
         "references.<br/><br/>"
         "<b>1. Introduction.</b> Prior work on imaginary subjects "
         "(Smith and Jones, 2024; Doe et al., 2023) has laid the groundwork."

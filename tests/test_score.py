@@ -1,5 +1,5 @@
-from citation_cleaner.parse import Citation
-from citation_cleaner.score import (
+from hallucitation.parse import Citation
+from hallucitation.score import (
     aggregate,
     author_overlap,
     doi_match,

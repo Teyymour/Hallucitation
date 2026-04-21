@@ -1,4 +1,4 @@
-"""Command-line interface for citation-cleaner."""
+"""Command-line interface for hallucitation."""
 
 from __future__ import annotations
 
@@ -6,10 +6,10 @@ import argparse
 import sys
 from pathlib import Path
 
-from citation_cleaner.extract import extract_raw_citations
-from citation_cleaner.parse import parse_many
-from citation_cleaner.report import to_markdown, write_json, annotate_pdf
-from citation_cleaner.verify import verify_citations_sync
+from hallucitation.extract import extract_raw_citations
+from hallucitation.parse import parse_many
+from hallucitation.report import to_markdown, write_json, annotate_pdf
+from hallucitation.verify import verify_citations_sync
 
 EXIT_OK = 0
 EXIT_HALLUCINATED = 1
@@ -18,7 +18,7 @@ EXIT_PARSE_ERROR = 2
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
-        prog="citation-cleaner",
+        prog="hallucitation",
         description="Find hallucinated citations in research PDFs.",
     )
     sub = p.add_subparsers(dest="command", required=True)

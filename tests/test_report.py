@@ -1,8 +1,8 @@
 import json
 from pathlib import Path
 
-from citation_cleaner.parse import Citation
-from citation_cleaner.report import (
+from hallucitation.parse import Citation
+from hallucitation.report import (
     annotate_pdf,
     count_verdicts,
     to_json,
@@ -10,7 +10,7 @@ from citation_cleaner.report import (
     write_json,
     write_markdown,
 )
-from citation_cleaner.verify import VerificationResult
+from hallucitation.verify import VerificationResult
 
 
 def _mkresult(verdict, title="Foo", year=2020, author="Smith, J."):

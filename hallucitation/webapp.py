@@ -1,7 +1,7 @@
-"""Streamlit web UI for citation-cleaner.
+"""Streamlit web UI for hallucitation.
 
 Run with:
-    streamlit run citation_cleaner/webapp.py
+    streamlit run hallucitation/webapp.py
 """
 
 from __future__ import annotations
@@ -12,10 +12,10 @@ from pathlib import Path
 
 import streamlit as st
 
-from citation_cleaner.extract import extract_raw_citations
-from citation_cleaner.parse import parse_many
-from citation_cleaner.report import to_markdown, to_json, annotate_pdf, count_verdicts
-from citation_cleaner.verify import verify_citations_sync
+from hallucitation.extract import extract_raw_citations
+from hallucitation.parse import parse_many
+from hallucitation.report import to_markdown, to_json, annotate_pdf, count_verdicts
+from hallucitation.verify import verify_citations_sync
 
 
 def _run(pdf_path: Path) -> tuple[list, str, str]:
@@ -29,18 +29,18 @@ def _run(pdf_path: Path) -> tuple[list, str, str]:
 
 def main() -> None:  # pragma: no cover - interactive
     st.set_page_config(
-        page_title="citation-cleaner",
+        page_title="Hallucitation",
         page_icon="*",
         layout="wide",
     )
 
-    st.title("citation-cleaner")
+    st.title("Hallucitation")
     st.caption("Find hallucinated citations in research PDFs.")
 
     with st.sidebar:
         st.header("About this tool")
         st.write(
-            "citation-cleaner extracts every reference from a research PDF, "
+            "Hallucitation extracts every reference from a research PDF, "
             "then verifies each one against Crossref and OpenAlex. "
             "References with no match in either database are flagged as "
             "possible hallucinations."
@@ -89,13 +89,13 @@ def main() -> None:  # pragma: no cover - interactive
     st.download_button(
         "Download JSON report",
         data=js,
-        file_name=f"{uploaded.name}.cleaner.json",
+        file_name=f"{uploaded.name}.hallucitation.json",
         mime="application/json",
     )
     st.download_button(
         "Download Markdown report",
         data=md,
-        file_name=f"{uploaded.name}.cleaner.md",
+        file_name=f"{uploaded.name}.hallucitation.md",
         mime="text/markdown",
     )
 
