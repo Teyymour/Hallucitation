@@ -1,9 +1,6 @@
 # Ethics Brief — `Hallucitation`
 
 *Teymour Davoudi*
-*DSCI 305*
-*Dr. Abramson*
-*April 4, 2026*
 
 *DSCI 305*
 
