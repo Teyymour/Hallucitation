@@ -1,0 +1,160 @@
+{
+  "corpus": {
+    "n_real": 10,
+    "n_hallucinated": 7,
+    "fixtures": [
+      "real_paper.pdf",
+      "hallucinated.pdf",
+      "mixed.pdf"
+    ]
+  },
+  "confusion": {
+    "tp": 7,
+    "fp": 0,
+    "tn": 10,
+    "fn": 0
+  },
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "rows": [
+    {
+      "fixture": "real_paper.pdf",
+      "index": 1,
+      "label": "real",
+      "verdict": "verified",
+      "confidence": 1.0,
+      "raw": "Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, L., and Polosukhin, I. (2017). Attention is all you need. Advances in Neural Information Processing Systems 30."
+    },
+    {
+      "fixture": "real_paper.pdf",
+      "index": 2,
+      "label": "real",
+      "verdict": "verified",
+      "confidence": 1.0,
+      "raw": "LeCun, Y., Bengio, Y., and Hinton, G. (2015). Deep learning. Nature, 521(7553), 436-444."
+    },
+    {
+      "fixture": "real_paper.pdf",
+      "index": 3,
+      "label": "real",
+      "verdict": "verified",
+      "confidence": 1.0,
+      "raw": "Krizhevsky, A., Sutskever, I., and Hinton, G. E. (2012). ImageNet classification with deep convolutional neural networks. Advances in Neural Information Processing Systems 25."
+    },
+    {
+      "fixture": "real_paper.pdf",
+      "index": 4,
+      "label": "real",
+      "verdict": "partial_match",
+      "confidence": 0.65,
+      "raw": "Devlin, J., Chang, M.-W., Lee, K., and Toutanova, K. (2019). BERT: Pre-training of deep bidirectional transformers for language understanding. Proceedings of NAACL-HLT 2019."
+    },
+    {
+      "fixture": "real_paper.pdf",
+      "index": 5,
+      "label": "real",
+      "verdict": "verified",
+      "confidence": 1.0,
+      "raw": "He, K., Zhang, X., Ren, S., and Sun, J. (2016). Deep residual learning for image recognition. Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)."
+    },
+    {
+      "fixture": "hallucinated.pdf",
+      "index": 1,
+      "label": "hallucinated",
+      "verdict": "hallucinated",
+      "confidence": 0.05,
+      "raw": "Smith, J. and Jones, K. (2024). A unified theory of toaster cognition. Journal of Imaginary Sciences, 42(7), 999-1013."
+    },
+    {
+      "fixture": "hallucinated.pdf",
+      "index": 2,
+      "label": "hallucinated",
+      "verdict": "hallucinated",
+      "confidence": 0.05,
+      "raw": "Doe, J., Roe, R., and Moe, M. (2023). Quantum entanglement of breakfast cereals. Proceedings of the International Conference on Nonexistent Results, 17-29."
+    },
+    {
+      "fixture": "hallucinated.pdf",
+      "index": 3,
+      "label": "hallucinated",
+      "verdict": "hallucinated",
+      "confidence": 0.05,
+      "raw": "Alderaan, L. and Tatooine, O. (2022). Self-supervised learning on synthetic galaxies. Journal of Make-Believe AI, 8(2), 55-72."
+    },
+    {
+      "fixture": "hallucinated.pdf",
+      "index": 4,
+      "label": "hallucinated",
+      "verdict": "hallucinated",
+      "confidence": 0.05,
+      "raw": "Fabricatus, M. (2024). Large language models dream of electric references. Hallucination Quarterly, 3(1), 1-9."
+    },
+    {
+      "fixture": "hallucinated.pdf",
+      "index": 5,
+      "label": "hallucinated",
+      "verdict": "hallucinated",
+      "confidence": 0.05,
+      "raw": "Mirage, P. and Phantom, Q. (2025). Towards zero-shot citation manufacturing. Fictional Transactions on Scholarly Fraud, 11(4), 200-215."
+    },
+    {
+      "fixture": "mixed.pdf",
+      "index": 1,
+      "label": "real",
+      "verdict": "verified",
+      "confidence": 1.0,
+      "raw": "Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, L., and Polosukhin, I. (2017). Attention is all you need. Advances in Neural Information Processing Systems 30."
+    },
+    {
+      "fixture": "mixed.pdf",
+      "index": 2,
+      "label": "real",
+      "verdict": "verified",
+      "confidence": 1.0,
+      "raw": "LeCun, Y., Bengio, Y., and Hinton, G. (2015). Deep learning. Nature, 521(7553), 436-444."
+    },
+    {
+      "fixture": "mixed.pdf",
+      "index": 3,
+      "label": "real",
+      "verdict": "verified",
+      "confidence": 1.0,
+      "raw": "Krizhevsky, A., Sutskever, I., and Hinton, G. E. (2012). ImageNet classification with deep convolutional neural networks. Advances in Neural Information Processing Systems 25."
+    },
+    {
+      "fixture": "mixed.pdf",
+      "index": 4,
+      "label": "real",
+      "verdict": "partial_match",
+      "confidence": 0.65,
+      "raw": "Devlin, J., Chang, M.-W., Lee, K., and Toutanova, K. (2019). BERT: Pre-training of deep bidirectional transformers for language understanding. Proceedings of NAACL-HLT 2019."
+    },
+    {
+      "fixture": "mixed.pdf",
+      "index": 5,
+      "label": "real",
+      "verdict": "verified",
+      "confidence": 1.0,
+      "raw": "He, K., Zhang, X., Ren, S., and Sun, J. (2016). Deep residual learning for image recognition. Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)."
+    },
+    {
+      "fixture": "mixed.pdf",
+      "index": 6,
+      "label": "hallucinated",
+      "verdict": "hallucinated",
+      "confidence": 0.05,
+      "raw": "Smith, J. and Jones, K. (2024). A unified theory of toaster cognition. Journal of Imaginary Sciences, 42(7), 999-1013."
+    },
+    {
+      "fixture": "mixed.pdf",
+      "index": 7,
+      "label": "hallucinated",
+      "verdict": "hallucinated",
+      "confidence": 0.05,
+      "raw": "Doe, J., Roe, R., and Moe, M. (2023). Quantum entanglement of breakfast cereals. Proceedings of the International Conference on Nonexistent Results, 17-29."
+    }
+  ]
+}
