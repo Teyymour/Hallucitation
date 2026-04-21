@@ -36,13 +36,13 @@ The intended users are:
 
 ## 4. Social impact
 
-The concrete impact of Hallucitation is lowering the cost of citation auditing from hours of manual lookup to seconds of running code. This matters most for under-resourced authors and reviewers who cannot afford commercial tools to perform these tasks. Further, it pushes the burden of integrity off the individual scholar/reviewer and onto reproducible infrastructure, mitigating the risk of human error in citation auditing.
+The concrete impact of `Hallucitation` is lowering the cost of citation auditing from hours of manual lookup to seconds of running code. This matters most for under-resourced authors and reviewers who cannot afford commercial tools to perform these tasks. Further, it pushes the burden of integrity off the individual scholar/reviewer and onto reproducible infrastructure, mitigating the risk of human error in citation auditing.
 
 ## 5. Limitations and risks
 
 **False positives** (flagging a real reference): the dominant failure vector is obscure venues with poor Crossref/OpenAlex coverage. The dual-source threshold minimizes this risk but does not eliminate it. While this tool is powerful and makes verifying most sources much faster and more robust, reviewers are encouraged to manually ensure that all flags are correct.
 
-**False negatives**: the tool cannot detect citations to retracted papers or citations where an LLM produced a real paper's metadata for the wrong claim. Both are outside the scope of the basic reference verification that Hallucitation performs.
+**False negatives**: the tool cannot detect citations to retracted papers or citations where an LLM produced a real paper's metadata for the wrong claim. Both are outside the scope of the basic reference verification that `Hallucitation` performs.
 
 **Meta-risk**: using AI to check AI-generated content (which many people often do) is itself a risk. `Hallucitation` deliberately avoids that trap. The tool has no LLM dependency or calls.
 
