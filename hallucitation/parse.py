@@ -7,6 +7,20 @@ from dataclasses import dataclass, field, asdict
 from typing import Any
 
 
+# Soft hyphen artifact from PDFs: a word split across a line break is extracted
+# as "<lower>- <lower>" (e.g. "Allo- cation"). Legitimate compound hyphens
+# (e.g. "High-Frequency", "co-integration", "state-of-the-art") have NO space
+# between the hyphen and the next word, so the lowercase-hyphen-space-lowercase
+# pattern is a safe marker for line-break artifacts only.
+_SOFT_HYPHEN_BREAK = re.compile(r"([a-z])- ([a-z])")
+
+
+def _rejoin_soft_hyphens(text: str | None) -> str | None:
+    if not text:
+        return text
+    return _SOFT_HYPHEN_BREAK.sub(r"\1\2", text)
+
+
 _DOI_RE = re.compile(r"\b(10\.\d{4,9}/[-._;()/:A-Z0-9]+)", re.IGNORECASE)
 _ARXIV_RE = re.compile(
     r"\barXiv[:\s]*([0-9]{4}\.[0-9]{4,5}(?:v\d+)?)\b", re.IGNORECASE
@@ -69,8 +83,8 @@ def parse_citation(raw: str) -> Citation:
     # --- Authors + title ---
     authors, title, journal = _split_authors_title_journal(text)
     cit.authors = authors
-    cit.title = title
-    cit.journal = journal
+    cit.title = _rejoin_soft_hyphens(title)
+    cit.journal = _rejoin_soft_hyphens(journal)
     return cit
 
 
