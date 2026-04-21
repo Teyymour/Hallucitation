@@ -5,6 +5,12 @@
 *Dr. Abramson*
 *April 4, 2026*
 
+*DSCI 305*
+
+*Dr. Abramson*
+
+*April 24, 2026*
+
 ## 1. Problem
 
 It is well-known that large language models, by design, are forced to give users an output. This fundamental property of LLMs often leads to "hallucinations," confident-sounding responses that are either incorrect or fabricated altogether. One such area in which hallucinations are particularly common (and dangerous) is citations. Walters and Wilder (2023) studied ChatGPT-generated bibliographies and found that roughly 47% of references in their sample were fully fabricated, containing nonexistent papers with plausible authors, titles, and DOIs. Bhattacharyya et al. (2023) reported similar rates in medical prompts. Chelli et al. (2024) documented hallucinated references in submitted and even a handful of published manuscripts. Though models have significantly improved since these studies took place, hallucinated citations remain a major issue today.
