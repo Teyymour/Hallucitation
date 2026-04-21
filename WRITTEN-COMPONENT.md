@@ -1,8 +1,9 @@
 # Ethics Brief — `Hallucitation`
 
-*Written component for DSCI 305 Final Project — Rice University, Spring 2026.*
-
 *Teymour Davoudi*
+*DSCI 305*
+*Dr. Abramson*
+*April 4, 2026*
 
 ## 1. Problem
 
