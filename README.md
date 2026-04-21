@@ -36,7 +36,7 @@ source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -e .
 ```
 
-Requires **Python 3.11+**.
+Requires **Python 3.10+**. If `python --version` reports anything older (e.g. on a default Anaconda install), create the venv explicitly with a newer interpreter: `python3.10 -m venv .venv` (or `python3.11`, `python3.12`).
 
 ## Quick start — CLI
 
